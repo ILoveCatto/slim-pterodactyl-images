@@ -1,6 +1,12 @@
 #!/bin/bash
-# Shows java version
-java -version
+cd /home/container
 
-# Start the minecraft server (Bring your own server.jar)
-java -Xms128M -Xmx${SERVER_MEMORY} -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar server.jar nogui
+# Output Current Java Version
+java -version ## only really needed to show what version is being used. Should be changed for different applications
+
+# Replace Startup Variables
+MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
+echo ":/home/container$ ${MODIFIED_STARTUP}"
+
+# Run the Server
+${MODIFIED_STARTUP}
