@@ -11,13 +11,14 @@ task:
   
   # Environment variables:
   env:
-      DOCKER_USERNAME: lumine+cirrusdocker
-      DOCKER_PASSWORD: 0UK6XWNCEK099JBC8EU8J8YJXPOI2S8V141BKVHFO6WX9E49XG3XWU9CA8W09HS1
+      DOCKER_USERNAME: lumine
+      DOCKER_PASSWORD: 193tyxuOhKRGx/yoCDt+9o6QfLzxNewqGT92dHQcWXWscS6WZ4BZEW6NuaBfkBh7
       DOCKER_REGISTRY: quay.io
 
   # Instructions:
   Docker_Login_script: docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}" ${DOCKER_REGISTRY}
   Install_Docker_Slim_script: curl -sL https://raw.githubusercontent.com/docker-slim/docker-slim/master/scripts/install-dockerslim.sh | bash
   Build_Image_script: docker build -f Minecraft-Java16/Dockerfile -t ${DOCKER_REGISTRY}/lumine/ptero-slim:mc-java16 .
-  Slimify_Image_script: docker-slim build --http-probe=false --target quay.io/lumine/ptero-slim:mc-java16
-  Push_Image_script: docker push ${DOCKER_REGISTRY}/lumine/ptero-slim:mc-java16.slim
+  Slimify_Image_script: docker-slim build --http-probe=false --target ${DOCKER_REGISTRY}/lumine/ptero-slim:mc-java16
+  Tag_Image_script: docker tag ${DOCKER_REGISTRY}/lumine/ptero-slim.slim quay.io/lumine/ptero-slim:mc-java16
+  Push_Image_script: docker push ${DOCKER_REGISTRY}/lumine/ptero-slim:mc-java16
