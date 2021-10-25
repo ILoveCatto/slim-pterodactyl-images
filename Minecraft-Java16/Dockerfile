@@ -8,7 +8,7 @@ RUN curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~
 
 USER container
 ENV  USER=container HOME=/home/container
-COPY ./entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh
 WORKDIR /home/container
 
 CMD ["/bin/bash", "/entrypoint.sh"]
