@@ -9,5 +9,5 @@ RUN curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~
 USER container
 ENV  USER=container HOME=/home/container
 WORKDIR /home/container
-COPY ./entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh Minecraft-Java16/entrypoint.sh
 CMD ["/bin/bash", "/entrypoint.sh"]
