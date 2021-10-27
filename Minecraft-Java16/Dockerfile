@@ -6,7 +6,7 @@ RUN curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~
     && jabba install adopt-openj9@1.16.0-1 \
     && jabba use adopt-openj9@1.16.0-1
 
-ADD https://raw.githubusercontent.com/ILoveCatto/slim-pterodactyl-images/master/Minecraft-Java16/entrypoint.sh
+ADD https://raw.githubusercontent.com/ILoveCatto/slim-pterodactyl-images/master/Minecraft-Java16/entrypoint.sh ./entrypoint.sh
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
