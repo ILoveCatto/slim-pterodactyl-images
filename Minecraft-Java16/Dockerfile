@@ -10,4 +10,4 @@ RUN chmod +x entrypoint.sh
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
-CMD ["/bin/bash", "/entrypoint.sh"]
+CMD ["/bin/sh", "/entrypoint.sh"]
