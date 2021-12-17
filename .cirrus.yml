@@ -7,7 +7,7 @@ task:
     image: family/docker-builder
     platform: linux
     cpu: 8
-    memory: 16G
+    memory: 12G
   
   # Environment variables:
   env:
